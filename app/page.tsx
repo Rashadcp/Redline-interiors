@@ -23,7 +23,7 @@ export default function Home() {
   return (
     <div className="site-shell" id="home">
       <ScrollProgress />
-      <Header onNavigate={scrollToSection} />
+      <Header />
 
       <main>
         <Hero onNavigate={scrollToSection} />
@@ -42,7 +42,7 @@ export default function Home() {
         <Contact />
       </main>
 
-      <Footer onNavigate={scrollToSection} />
+      <Footer />
     </div>
   );
 }

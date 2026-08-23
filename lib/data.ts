@@ -8,11 +8,11 @@ export const STUDIO_ASSETS = {
 };
 
 export const NAV_ITEMS = [
-  { label: "Home", id: "home" },
-  { label: "About", id: "about" },
-  { label: "Services", id: "services" },
-  { label: "Projects", id: "projects" },
-  { label: "Contact", id: "contact" },
+  { label: "Home", id: "home", href: "/" },
+  { label: "About", id: "about", href: "/about" },
+  { label: "Services", id: "services", href: "/services" },
+  { label: "Projects", id: "projects", href: "/projects" },
+  { label: "Contact", id: "contact", href: "/contact" },
 ] as const;
 
 export interface ProjectItem {

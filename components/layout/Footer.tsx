@@ -1,17 +1,14 @@
 "use client";
 
+import Link from "next/link";
 import { BrandMark } from "@/components/common/BrandMark";
 import { NAV_ITEMS, STUDIO_INFO } from "@/lib/data";
 
-interface FooterProps {
-  onNavigate: (id: string) => void;
-}
-
-export function Footer({ onNavigate }: FooterProps) {
+export function Footer() {
   return (
     <footer className="site-footer">
       <div className="footer-top">
-        <BrandMark onNavigate={onNavigate} />
+        <BrandMark />
         <p>Interiors shaped with a clear point of view.</p>
       </div>
 
@@ -42,10 +39,10 @@ export function Footer({ onNavigate }: FooterProps) {
 
         <div className="footer-nav">
           <p className="footer-label">Navigate</p>
-          {NAV_ITEMS.map(({ label, id }) => (
-            <button key={id} onClick={() => onNavigate(id)}>
+          {NAV_ITEMS.map(({ label, id, href }) => (
+            <Link key={id} href={href} className="cursor-pointer">
               {label}
-            </button>
+            </Link>
           ))}
         </div>
       </div>

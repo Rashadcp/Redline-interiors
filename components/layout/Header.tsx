@@ -1,40 +1,26 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUpRight, Menu, X, Phone, Mail, MapPin } from "lucide-react";
 import { BrandMark } from "@/components/common/BrandMark";
 import { NAV_ITEMS, STUDIO_INFO } from "@/lib/data";
 
 interface HeaderProps {
-  onNavigate: (id: string) => void;
+  onNavigate?: (id: string) => void;
 }
 
 export function Header({ onNavigate }: HeaderProps) {
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState<string>("home");
   const [hoveredNav, setHoveredNav] = useState<string | null>(null);
 
   useEffect(() => {
     const onScroll = () => {
       setScrolled(window.scrollY > 30);
-
-      // Detect active section on scroll
-      const sections = NAV_ITEMS.map((item) => item.id);
-      const scrollPosition = window.scrollY + 200;
-
-      for (const sectionId of sections) {
-        const el = document.getElementById(sectionId);
-        if (el) {
-          const top = el.offsetTop;
-          const height = el.offsetHeight;
-          if (scrollPosition >= top && scrollPosition < top + height) {
-            setActiveSection(sectionId);
-            break;
-          }
-        }
-      }
     };
 
     onScroll();
@@ -42,46 +28,45 @@ export function Header({ onNavigate }: HeaderProps) {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const handleNavClick = (id: string) => {
-    setMenuOpen(false);
-    setActiveSection(id);
-    onNavigate(id);
+  const isCurrentPage = (href: string) => {
+    return pathname === href;
   };
 
   return (
     <>
       <header
         className={`fixed top-0 inset-x-0 z-40 transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] ${
-          scrolled || menuOpen
+          scrolled || menuOpen || pathname !== "/"
             ? "py-3 bg-[#f7f5f0]/90 backdrop-blur-xl border-b border-[#161616]/10 text-[#161616] shadow-[0_4px_30px_rgba(0,0,0,0.03)]"
             : "py-6 bg-transparent text-white"
         }`}
       >
         <div className="content-rail relative flex items-center justify-between">
           {/* Brand Logo & Name */}
-          <BrandMark onNavigate={handleNavClick} />
+          <BrandMark />
 
           {/* Desktop Floating Pill Navigation (Centered) */}
           <nav
             className={`hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-1 px-4 py-1.5 rounded-full transition-all duration-300 ${
-              scrolled
+              scrolled || pathname !== "/"
                 ? "bg-[#161616]/[0.04] border border-[#161616]/10 shadow-inner"
                 : "bg-black/30 backdrop-blur-md border border-white/15"
             }`}
             aria-label="Primary navigation"
           >
-            {NAV_ITEMS.map(({ label, id }) => {
-              const isActive = activeSection === id;
+            {NAV_ITEMS.map(({ label, id, href }) => {
+              const isActive = isCurrentPage(href);
               const isHovered = hoveredNav === id;
+              const isLightHeader = scrolled || pathname !== "/";
 
               return (
-                <button
+                <Link
                   key={id}
-                  onClick={() => handleNavClick(id)}
+                  href={href}
                   onMouseEnter={() => setHoveredNav(id)}
                   onMouseLeave={() => setHoveredNav(null)}
                   className={`relative px-4 py-1.5 text-[0.68rem] tracking-[0.14em] uppercase font-bold transition-colors duration-200 cursor-pointer ${
-                    scrolled
+                    isLightHeader
                       ? isActive
                         ? "text-[#c52a22]"
                         : "text-[#161616]/75 hover:text-[#161616]"
@@ -95,7 +80,7 @@ export function Header({ onNavigate }: HeaderProps) {
                     <motion.span
                       layoutId="navPill"
                       className={`absolute inset-0 rounded-full -z-10 ${
-                        scrolled
+                        isLightHeader
                           ? isActive
                             ? "bg-white shadow-sm border border-black/5"
                             : "bg-black/5"
@@ -113,7 +98,7 @@ export function Header({ onNavigate }: HeaderProps) {
                     )}
                     {label}
                   </span>
-                </button>
+                </Link>
               );
             })}
           </nav>
@@ -121,7 +106,7 @@ export function Header({ onNavigate }: HeaderProps) {
           {/* Mobile Menu Button */}
           <button
             className={`md:hidden p-2.5 rounded-full transition-colors cursor-pointer ${
-              scrolled || menuOpen
+              scrolled || menuOpen || pathname !== "/"
                 ? "bg-[#161616]/5 text-[#161616] hover:bg-[#161616]/10"
                 : "bg-white/15 text-white backdrop-blur-md hover:bg-white/25"
             }`}
@@ -149,23 +134,27 @@ export function Header({ onNavigate }: HeaderProps) {
               <span className="text-[0.62rem] tracking-[0.2em] uppercase font-bold text-[#c52a22] mb-2">
                 Studio Navigation
               </span>
-              {NAV_ITEMS.map(({ label, id }, index) => (
-                <motion.button
+              {NAV_ITEMS.map(({ label, id, href }, index) => (
+                <motion.div
                   key={id}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.05 * index + 0.1, duration: 0.4 }}
-                  onClick={() => handleNavClick(id)}
-                  className="flex items-center justify-between py-3 border-b border-[#161616]/10 text-left font-serif text-3xl text-[#161616] hover:text-[#c52a22] transition-colors"
                 >
-                  <span className="flex items-center gap-3">
-                    <span className="text-xs font-mono text-[#c52a22]/70 font-sans">
-                      0{index + 1}
+                  <Link
+                    href={href}
+                    onClick={() => setMenuOpen(false)}
+                    className="flex items-center justify-between py-3 border-b border-[#161616]/10 text-left font-serif text-3xl text-[#161616] hover:text-[#c52a22] transition-colors"
+                  >
+                    <span className="flex items-center gap-3">
+                      <span className="text-xs font-mono text-[#c52a22]/70 font-sans">
+                        0{index + 1}
+                      </span>
+                      {label}
                     </span>
-                    {label}
-                  </span>
-                  <ArrowUpRight size={20} strokeWidth={1.4} />
-                </motion.button>
+                    <ArrowUpRight size={20} strokeWidth={1.4} />
+                  </Link>
+                </motion.div>
               ))}
             </div>
 
@@ -183,14 +172,6 @@ export function Header({ onNavigate }: HeaderProps) {
                 <Mail size={15} className="text-[#c52a22]" />
                 <a href={`mailto:${STUDIO_INFO.email}`}>{STUDIO_INFO.email}</a>
               </div>
-
-              <button
-                className="w-full mt-2 py-3.5 bg-[#c52a22] text-white text-xs tracking-widest uppercase font-bold inline-flex items-center justify-center gap-2 rounded-lg"
-                onClick={() => handleNavClick("contact")}
-              >
-                <span>Start a Project</span>
-                <ArrowUpRight size={16} />
-              </button>
             </div>
           </motion.div>
         )}
