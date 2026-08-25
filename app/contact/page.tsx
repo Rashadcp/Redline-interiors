@@ -42,8 +42,16 @@ export default function ContactPage() {
         {/* Contact Form & Studio Details */}
         <section className="content-rail py-16 md:py-24 grid grid-cols-1 md:grid-cols-12 gap-12">
           {/* Left: Interactive Inquiry Form */}
-          <div className="md:col-span-7 bg-white p-8 md:p-12 border border-[#161616]/10 shadow-sm">
-            <h2 className="text-2xl sm:text-3xl font-serif text-[#161616] mb-6">
+          <div className="md:col-span-7 bg-white p-6 sm:p-8 md:p-12 border border-[#161616]/10 shadow-sm rounded-sm">
+            <h2
+              className="font-serif text-[#161616] font-normal"
+              style={{
+                fontSize: "clamp(1.5rem, 2.5vw, 2rem)",
+                lineHeight: "1.35",
+                marginBottom: "32px",
+                display: "block",
+              }}
+            >
               Project Commission Inquiry
             </h2>
 
@@ -60,10 +68,10 @@ export default function ContactPage() {
                 </p>
               </motion.div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6 pt-2">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-xs uppercase tracking-wider text-[#746f68] font-bold mb-2">
+                    <label className="block text-xs uppercase tracking-wider text-[#746f68] font-bold mb-2.5">
                       Your Name *
                     </label>
                     <input
