@@ -39,13 +39,13 @@ export function Services({ onNavigate }: ServicesProps) {
         viewport={{ once: true, amount: 0.1 }}
         transition={{ duration: 0.7, ease: [0.23, 1, 0.32, 1] }}
       >
-        <Eyebrow>Studio Scope</Eyebrow>
+        <Eyebrow>Our Services</Eyebrow>
         <h2 id="services-title">
-          Services
+          Home inside
           <br />
-          with <em>intention.</em>
+          & <em>kitchen design.</em>
         </h2>
-        <p>Each commission starts with the plan, the light, and the pace of life the space must hold.</p>
+        <p>We specialize in crafting beautiful home interiors and modern modular kitchen designs tailored to your lifestyle.</p>
       </motion.div>
 
       <ol className="services-list">

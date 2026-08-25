@@ -207,9 +207,9 @@ export function Projects({ onNavigate }: ProjectsProps) {
         >
           <Eyebrow>Selected Portfolio · Kerala</Eyebrow>
           <h2 id="projects-title">
-            Selected
+            Featured
             <br />
-            <em>projects.</em>
+            <em>interiors.</em>
           </h2>
         </motion.div>
         <motion.div
@@ -220,8 +220,7 @@ export function Projects({ onNavigate }: ProjectsProps) {
           className="flex flex-col items-start md:items-end gap-5"
         >
           <p className="max-w-md">
-            An intentionally edited portfolio of private villas, coastal apartments, and tropical estates
-            crafted around atmosphere, climatic intelligence, and enduring materiality.
+            An intentionally edited portfolio of bespoke modular kitchens, elegant living areas, and luxurious bedrooms crafted around modern utility and enduring materiality.
           </p>
 
           {/* Filter Pills */}

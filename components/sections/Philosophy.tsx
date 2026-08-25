@@ -57,10 +57,10 @@ export function Philosophy({ onNavigate }: PhilosophyProps) {
         viewport={{ once: true, amount: 0.1 }}
         transition={{ duration: 0.75, ease: [0.23, 1, 0.32, 1] }}
       >
-        <Eyebrow>Our Philosophy</Eyebrow>
+        <Eyebrow>Bespoke Interiors</Eyebrow>
         <h2 id="philosophy-title">
-          Rooted in climate,
-          <br />crafted for <em>generations.</em>
+          Designed for living,
+          <br />crafted for <em>comfort.</em>
         </h2>
         <motion.div
           className="copy-rule"
@@ -71,9 +71,7 @@ export function Philosophy({ onNavigate }: PhilosophyProps) {
           style={{ originY: 0 }}
         />
         <p>
-          Redline Interiors creates bespoke residential sanctuaries and commercial spaces across
-          Kerala and South India. We synthesize open courtyards, natural ventilation, local teak,
-          and laterite stone with clean contemporary minimalism.
+          Redline Interiors creates bespoke residential spaces, from elegant bedrooms and vibrant living areas to modern modular kitchens. We synthesize high-quality materials and intelligent design to bring your dream home to life.
         </p>
         <motion.button
           className="text-arrow-link cursor-pointer"
@@ -81,7 +79,7 @@ export function Philosophy({ onNavigate }: PhilosophyProps) {
           whileHover={{ x: 4 }}
           whileTap={{ scale: 0.98 }}
         >
-          <span>Explore our architectural approach</span>
+          <span>Explore our interior solutions</span>
           <ArrowDownRight size={18} strokeWidth={1.5} />
         </motion.button>
       </motion.div>
@@ -96,35 +94,17 @@ export function Philosophy({ onNavigate }: PhilosophyProps) {
       >
         <div className="w-full h-full overflow-hidden">
           <motion.img
-            src={STUDIO_ASSETS.library}
-            alt="Tropical modern interior with stone shelving, natural ventilation, and smoked teak joinery"
+            src={STUDIO_ASSETS.bedroom}
+            alt="Bespoke luxury bedroom interior with custom finishes"
             className="transition-transform duration-700 ease-out group-hover:scale-105"
             style={{ y: reduceMotion ? 0 : imageY, scale: reduceMotion ? 1 : imageScale }}
           />
         </div>
         <figcaption className="transition-transform duration-300 group-hover:translate-x-1">
           <span>01</span>
-          <span>Tropical Material &amp; Courtyard Studies</span>
+          <span>Bespoke Bedroom Studies</span>
         </figcaption>
       </motion.figure>
-
-      <motion.div
-        className="monogram-stamp"
-        aria-hidden="true"
-        initial={{ opacity: 0, scale: 0.8 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: true, amount: 0.1 }}
-        transition={{ type: "spring", stiffness: 260, damping: 20, delay: 0.2 }}
-        whileHover={{ scale: 1.08, rotate: 3 }}
-      >
-        <motion.img
-          src={STUDIO_ASSETS.logo}
-          alt=""
-          animate={{ rotate: [0, 360] }}
-          transition={{ duration: 24, repeat: Infinity, ease: "linear" }}
-        />
-        <span>RL / KERALA</span>
-      </motion.div>
     </section>
   );
 }

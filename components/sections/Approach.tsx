@@ -59,8 +59,8 @@ export function Approach({ onNavigate }: ApproachProps) {
       >
         <div className="w-full h-full">
           <motion.img
-            src={STUDIO_ASSETS.stair}
-            alt="A sculptural staircase in a luxury contemporary villa in Kerala"
+            src={STUDIO_ASSETS.kitchen}
+            alt="A beautifully crafted modular kitchen interior designed for seamless utility"
             className="transition-transform duration-700 ease-out group-hover:scale-105"
             style={{ y: reduceMotion ? 0 : imgY, scale: reduceMotion ? 1 : imgScale }}
           />
@@ -77,13 +77,11 @@ export function Approach({ onNavigate }: ApproachProps) {
       >
         <Eyebrow>The Redline Approach</Eyebrow>
         <h2 id="approach-title">
-          From concept
-          <br />to <em>execution.</em>
+          From kitchen
+          <br />to <em>living room.</em>
         </h2>
         <p>
-          From spatial orientation to respond to the tropical sun and monsoon breezes, to selecting
-          reclaimed Kerala teak, Kota stone, and custom Italian finishes — we ensure every project
-          embodies effortless luxury and enduring craftsmanship.
+          From modular kitchen layouts designed for seamless utility and style, to bespoke living rooms and bedrooms crafted with custom finishes — we ensure every home interior project embodies effortless luxury and enduring craftsmanship.
         </p>
         <motion.button
           className="round-arrow cursor-pointer"

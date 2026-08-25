@@ -15,17 +15,22 @@ export function Footer() {
       <div className="footer-grid">
         <div>
           <p className="footer-label">Contact</p>
-          <a href={`mailto:${STUDIO_INFO.email}`}>{STUDIO_INFO.email}</a>
           <a href={`tel:${STUDIO_INFO.phone.replace(/\s+/g, "")}`}>{STUDIO_INFO.phone}</a>
+          <span className="text-xs text-[#746f68] block mt-1">{STUDIO_INFO.hours}</span>
         </div>
 
         <div>
           <p className="footer-label">Visit</p>
-          <p>
+          <a
+            href={STUDIO_INFO.address.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-[#c52a22] transition-colors"
+          >
             {STUDIO_INFO.address.line1}
             <br />
             {STUDIO_INFO.address.line2}
-          </p>
+          </a>
         </div>
 
         <div>

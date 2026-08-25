@@ -10,7 +10,7 @@ interface HeroProps {
   onNavigate: (id: string) => void;
 }
 
-const HERO_WORDS = ["SPACES", "THAT", "DEFINE", "THE", "WAY", "YOU", "LIVE."];
+const HERO_WORDS = ["CRAFTING", "BEAUTIFUL", "HOME", "INTERIORS."];
 
 export function Hero({ onNavigate }: HeroProps) {
   const containerRef = useRef<HTMLElement>(null);
@@ -40,9 +40,11 @@ export function Hero({ onNavigate }: HeroProps) {
         transition={{ duration: reduceMotion ? 0 : 1.8, ease: [0.2, 0.78, 0.2, 1] }}
       />
       <div className="hero-overlay" />
+      <div className="hero-light-flare" aria-hidden="true" />
+      <div className="hero-sunbeam" aria-hidden="true" />
 
       <motion.div
-        className="hero-content content-rail"
+        className="hero-content content-rail flex flex-col items-start text-left"
         style={{
           y: reduceMotion ? 0 : contentY,
           opacity: reduceMotion ? 1 : contentOpacity,
@@ -52,15 +54,12 @@ export function Hero({ onNavigate }: HeroProps) {
           initial={reduceMotion ? false : { y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.75, delay: 0.25, ease: [0.23, 1, 0.32, 1] }}
-          className="flex items-center justify-between"
+          className="flex items-center justify-start gap-3 mb-2"
         >
-          <Eyebrow dark>Interior Architecture &amp; Tropical Design</Eyebrow>
-          <span className="hidden md:inline-block text-[0.58rem] tracking-[0.2em] uppercase text-white/60 font-semibold">
-            EST. 2026 · KOCHI, KERALA
-          </span>
+          <Eyebrow dark>Bespoke Kitchens &amp; Living Spaces</Eyebrow>
         </motion.div>
 
-        <h1 id="hero-title" className="hero-title" aria-label="Spaces that define the way you live.">
+        <h1 id="hero-title" className="hero-title text-left" aria-label="Crafting beautiful home interiors.">
           {HERO_WORDS.map((word, index) => (
             <span className="word-mask" key={word}>
               <motion.span
@@ -79,17 +78,17 @@ export function Hero({ onNavigate }: HeroProps) {
         </h1>
 
         <motion.div
-          className="hero-bottom"
+          className="hero-bottom flex flex-col items-start text-left gap-5 max-w-lg mt-6"
           initial={reduceMotion ? false : { y: 24, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.95, ease: [0.23, 1, 0.32, 1] }}
         >
-          <p>
-            Thoughtfully crafted residences across Kerala and India, blending tropical modernism,
-            vernacular craft, and contemporary luxury.
+          <p className="text-left text-sm sm:text-base text-white/85 font-light leading-relaxed">
+            Thoughtfully crafted home interiors across Kerala and India, specializing in bespoke bedrooms,
+            living areas, modular kitchens, and contemporary luxury.
           </p>
           <motion.button
-            className="text-arrow-link light-link group cursor-pointer"
+            className="text-arrow-link light-link group cursor-pointer inline-flex items-center gap-3 mt-1"
             onClick={() => onNavigate("projects")}
             whileHover={{ x: 4 }}
             whileTap={{ scale: 0.98 }}
@@ -99,7 +98,7 @@ export function Hero({ onNavigate }: HeroProps) {
               animate={{ x: [0, 4, 0] }}
               transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
             >
-              <ArrowDownRight size={19} strokeWidth={1.5} />
+              <ArrowDownRight size={18} strokeWidth={1.5} />
             </motion.span>
           </motion.button>
         </motion.div>

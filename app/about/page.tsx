@@ -66,7 +66,7 @@ export default function AboutPage() {
           <div className="md:col-span-6 relative">
             <div className="relative overflow-hidden rounded-none shadow-xl border border-black/10">
               <img
-                src={STUDIO_ASSETS.library}
+                src={STUDIO_ASSETS.living}
                 alt="Redline Interiors Studio craft"
                 className="w-full h-[340px] md:h-[400px] object-cover"
               />
@@ -76,30 +76,33 @@ export default function AboutPage() {
 
         <EditorialMarquee />
 
-        {/* Studio Locations Grid */}
+        {/* Studio Location & Workshop Showcase */}
         <section className="content-rail py-20 md:py-28">
-          <div className="text-center max-w-xl mx-auto mb-16">
-            <Eyebrow>Presence Across South India</Eyebrow>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif text-[#161616] mt-2">
-              Our studio <em>locations.</em>
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-            {STUDIO_INFO.locations.map((loc) => (
-              <div
-                key={loc}
-                className="p-6 md:p-8 bg-white border border-[#161616]/10 shadow-sm hover:border-[#c52a22] transition-colors"
-              >
-                <MapPin className="text-[#c52a22] mb-3" size={22} />
-                <h3 className="font-serif text-2xl text-[#161616]">{loc}</h3>
-                <p className="text-xs text-[#746f68] uppercase tracking-wider mt-1">Kerala & South India</p>
-                <div className="flex items-center gap-2 mt-4 text-xs text-[#161616] font-semibold">
-                  <CheckCircle2 size={14} className="text-[#c52a22]" />
-                  <span>Active Commissions</span>
-                </div>
+          <div className="bg-white p-8 md:p-14 border border-[#161616]/10 shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+            <div>
+              <Eyebrow>Studio &amp; Workshop</Eyebrow>
+              <h2 className="text-3xl sm:text-4xl font-serif text-[#161616] mt-2">
+                Visit our studio in <em>Thalappara.</em>
+              </h2>
+              <p className="text-sm text-[#615d57] font-light mt-3 max-w-lg leading-relaxed">
+                {STUDIO_INFO.address.line1}, {STUDIO_INFO.address.line2}
+              </p>
+              <div className="flex items-center gap-4 mt-4 text-xs font-semibold text-[#161616]">
+                <span className="text-[#c52a22] font-mono">{STUDIO_INFO.phone}</span>
+                <span>•</span>
+                <span className="text-[#746f68]">{STUDIO_INFO.hours}</span>
               </div>
-            ))}
+            </div>
+
+            <a
+              href={STUDIO_INFO.address.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-3.5 bg-[#161616] hover:bg-[#c52a22] text-white text-xs uppercase tracking-widest font-bold transition-all shadow-sm flex items-center gap-2 flex-shrink-0"
+            >
+              <MapPin size={14} />
+              <span>Get Directions</span>
+            </a>
           </div>
         </section>
       </main>

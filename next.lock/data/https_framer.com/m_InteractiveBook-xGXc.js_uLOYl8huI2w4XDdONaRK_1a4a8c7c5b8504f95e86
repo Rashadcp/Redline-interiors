@@ -1,0 +1,8 @@
+/*
+ * InteractiveBook
+ *
+ * Learn More: https://www.framer.com/asset-urls
+ */
+
+export * from "https://framerusercontent.com/modules/24KyqEDfxg4nxqaSUBKV/uLOYl8huI2w4XDdONaRK/InteractiveBook.js"
+export { default } from "https://framerusercontent.com/modules/24KyqEDfxg4nxqaSUBKV/uLOYl8huI2w4XDdONaRK/InteractiveBook.js"

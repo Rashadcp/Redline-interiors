@@ -162,15 +162,19 @@ export function Header({ onNavigate }: HeaderProps) {
             <div className="pt-8 flex flex-col gap-4 border-t border-[#161616]/10 mt-6">
               <div className="flex items-center gap-3 text-xs text-[#746f68]">
                 <MapPin size={15} className="text-[#c52a22]" />
-                <span>Panampilly Nagar, Kochi, Kerala</span>
+                <a
+                  href={STUDIO_INFO.address.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#c52a22] transition-colors"
+                >
+                  Moonniyur, Thalappara, Kerala
+                </a>
               </div>
               <div className="flex items-center gap-3 text-xs text-[#746f68]">
                 <Phone size={15} className="text-[#c52a22]" />
                 <a href={`tel:${STUDIO_INFO.phone}`}>{STUDIO_INFO.phone}</a>
-              </div>
-              <div className="flex items-center gap-3 text-xs text-[#746f68]">
-                <Mail size={15} className="text-[#c52a22]" />
-                <a href={`mailto:${STUDIO_INFO.email}`}>{STUDIO_INFO.email}</a>
+                <span className="text-[0.65rem] text-[#8a857e]">({STUDIO_INFO.hours})</span>
               </div>
             </div>
           </motion.div>

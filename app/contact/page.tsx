@@ -138,18 +138,23 @@ export default function ContactPage() {
           <div className="md:col-span-5 space-y-8">
             <div className="p-8 bg-white border border-[#161616]/10 shadow-sm space-y-6">
               <span className="text-[0.62rem] uppercase tracking-widest text-[#c52a22] font-bold block">
-                Principal Studio
+                Principal Studio &amp; Workshop
               </span>
               <div className="space-y-4">
                 <div className="flex items-start gap-4">
                   <MapPin className="text-[#c52a22] flex-shrink-0 mt-1" size={18} />
                   <div>
-                    <h3 className="font-serif text-xl text-[#161616]">Kochi Headquarters</h3>
-                    <p className="text-xs text-[#615d57] leading-relaxed mt-1">
+                    <h3 className="font-serif text-xl text-[#161616]">Redline Interiors Studio</h3>
+                    <a
+                      href={STUDIO_INFO.address.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs text-[#615d57] leading-relaxed mt-1 block hover:text-[#c52a22] transition-colors"
+                    >
                       {STUDIO_INFO.address.line1}
                       <br />
                       {STUDIO_INFO.address.line2}
-                    </p>
+                    </a>
                   </div>
                 </div>
 
@@ -162,18 +167,7 @@ export default function ContactPage() {
                     >
                       {STUDIO_INFO.phone}
                     </a>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-4">
-                  <Mail className="text-[#c52a22] flex-shrink-0" size={18} />
-                  <div>
-                    <a
-                      href={`mailto:${STUDIO_INFO.email}`}
-                      className="text-sm font-semibold text-[#161616] hover:text-[#c52a22] transition-colors"
-                    >
-                      {STUDIO_INFO.email}
-                    </a>
+                    <span className="text-[0.65rem] text-[#746f68] block mt-0.5">{STUDIO_INFO.hours}</span>
                   </div>
                 </div>
               </div>
