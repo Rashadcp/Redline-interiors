@@ -101,9 +101,66 @@
 
 .hero { position: relative; height: 100vh; height: 100dvh; min-height: 100vh; max-height: 100vh; max-height: 100dvh; color: #fff; display: flex; align-items: center; justify-content: flex-start; overflow: hidden; background: #121211; }
 .hero-image { position: absolute; inset: 0; background-size: cover; background-position: center center; will-change: transform; }
-.hero-overlay { position: absolute; inset: 0; background: linear-gradient(90deg, rgb(0 0 0 / 88%) 0%, rgb(0 0 0 / 72%) 36%, rgb(0 0 0 / 30%) 65%, transparent 100%), linear-gradient(0deg, rgb(0 0 0 / 60%) 0%, transparent 45%); z-index: 1; pointer-events: none; }
-.hero-light-flare { position: absolute; top: -15%; right: -10%; width: 70vw; height: 110vh; border-radius: 50%; background: radial-gradient(circle at 75% 30%, rgba(255, 235, 195, 0.35) 0%, rgba(255, 215, 160, 0.18) 35%, rgba(255, 185, 110, 0.06) 65%, transparent 80%); filter: blur(45px); pointer-events: none; mix-blend-mode: screen; z-index: 1; }
-.hero-sunbeam { position: absolute; top: 0; right: 0; width: 50vw; height: 100vh; background: linear-gradient(135deg, rgba(255, 245, 220, 0.16) 0%, rgba(255, 225, 180, 0.08) 40%, transparent 75%); pointer-events: none; mix-blend-mode: overlay; z-index: 1; }
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: 
+    linear-gradient(
+      90deg,
+      rgba(14, 14, 13, 0.90) 0%,
+      rgba(14, 14, 13, 0.82) 20%,
+      rgba(14, 14, 13, 0.65) 38%,
+      rgba(14, 14, 13, 0.42) 55%,
+      rgba(14, 14, 13, 0.20) 70%,
+      rgba(14, 14, 13, 0.06) 85%,
+      transparent 100%
+    ),
+    linear-gradient(
+      0deg,
+      rgba(14, 14, 13, 0.60) 0%,
+      rgba(14, 14, 13, 0.25) 28%,
+      transparent 55%
+    );
+  z-index: 1;
+  pointer-events: none;
+}
+.hero-light-flare {
+  position: absolute;
+  top: -10%;
+  right: -5%;
+  width: 75vw;
+  height: 120vh;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse at 80% 35%,
+    rgba(255, 238, 205, 0.30) 0%,
+    rgba(255, 222, 170, 0.16) 35%,
+    rgba(255, 205, 140, 0.07) 55%,
+    rgba(255, 195, 120, 0.02) 75%,
+    transparent 88%
+  );
+  filter: blur(55px);
+  pointer-events: none;
+  mix-blend-mode: screen;
+  z-index: 1;
+}
+.hero-sunbeam {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 60vw;
+  height: 100vh;
+  background: linear-gradient(
+    125deg,
+    rgba(255, 245, 225, 0.14) 0%,
+    rgba(255, 230, 190, 0.06) 45%,
+    transparent 80%
+  );
+  filter: blur(35px);
+  pointer-events: none;
+  mix-blend-mode: overlay;
+  z-index: 1;
+}
 .hero-content { position: relative; z-index: 2; width: 100%; display: flex; flex-direction: column; align-items: flex-start; text-align: left; padding-top: 48px; padding-bottom: 24px; }
 .eyebrow { display: flex; align-items: center; justify-content: flex-start; gap: 10px; color: var(--redline); margin: 0 0 18px; text-transform: uppercase; letter-spacing: .155em; font-size: .63rem; font-weight: 750; }
 .eyebrow span { width: 21px; height: 1px; background: currentColor; }
@@ -123,18 +180,18 @@
 @keyframes line-grow { from { transform: scaleX(0); } to { transform: scaleX(1); } }
 @keyframes scroll-nudge { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(5px); } }
 
-.philosophy { position: relative; display: grid; grid-template-columns: minmax(0, .94fr) minmax(0, 1.06fr); gap: clamp(42px, 8vw, 156px); align-items: center; width: min(100% - 48px, 1320px); margin: 0 auto; }
+.philosophy { position: relative; display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); gap: clamp(32px, 5vw, 90px); align-items: center; width: min(100% - 48px, 1240px); margin: 0 auto; }
 .philosophy-datum { top: clamp(47px, 7vw, 108px); left: clamp(0px, 4vw, 68px); }
 .editorial-copy { padding-left: clamp(0px, 3.3vw, 58px); max-width: 530px; }
 h2 { font-family: var(--font-cormorant), "Cormorant Garamond", Georgia, serif; font-weight: 500; font-size: clamp(2rem, 3.8vw, 3.8rem); line-height: .92; letter-spacing: -.03em; margin: 0; }
 h2 em { font-style: italic; font-weight: 400; }
 .copy-rule { height: 48px; border-left: 2px solid var(--redline); margin: 32px 0 20px; }
 .editorial-copy > p, .approach-copy > p, .services-intro > p, .projects-heading > p { color: #615d57; font-size: .88rem; line-height: 1.75; }
-.editorial-copy > p { max-width: 400px; margin: 0 0 26px; }
+.editorial-copy > p { max-width: 440px; margin: 0 0 26px; }
 .image-frame { margin: 0; position: relative; overflow: hidden; }
 .image-frame img { display: block; width: 100%; height: 100%; object-fit: cover; }
-.philosophy-image { height: min(710px, 56vw); align-self: stretch; }
-.philosophy-image figcaption { position: absolute; left: 0; bottom: 0; display: flex; align-items: center; gap: 15px; padding: 14px 16px; color: #fff; background: rgb(22 22 22 / 91%); font-size: .62rem; text-transform: uppercase; letter-spacing: .1em; }
+.philosophy-image { height: min(440px, 34vw); max-width: 480px; width: 100%; max-height: 440px; justify-self: end; border-radius: 8px; overflow: hidden; }
+.philosophy-image figcaption { position: absolute; left: 0; bottom: 0; display: flex; align-items: center; gap: 15px; padding: 14px 16px; color: #fff; background: rgb(22 22 22 / 91%); font-size: .62rem; text-transform: uppercase; letter-spacing: .1em; border-bottom-left-radius: 8px; border-bottom-right-radius: 8px; }
 .philosophy-image figcaption span:first-child { color: #ff5b53; }
 .monogram-stamp { position: absolute; z-index: 3; right: clamp(18px, 7vw, 110px); bottom: clamp(37px, 6vw, 92px); display: flex; align-items: center; gap: 10px; color: #fff; background: var(--redline); padding: 12px 14px; box-shadow: 0 9px 25px rgb(0 0 0 / 16%); }
 .monogram-stamp img { width: 32px; height: 32px; object-fit: contain; filter: brightness(0) invert(1); }

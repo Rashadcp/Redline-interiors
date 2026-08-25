@@ -1,10 +1,43 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
-import { ArrowDownRight } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
+import { motion, useScroll, useTransform, useReducedMotion, AnimatePresence } from "framer-motion";
+import { ArrowDownRight, Sparkles } from "lucide-react";
 import { Eyebrow } from "@/components/common/Eyebrow";
 import { STUDIO_ASSETS } from "@/lib/data";
+
+const SLIDES = [
+  {
+    image: STUDIO_ASSETS.living,
+    number: "01",
+    title: "Living Room & Media Lounge",
+    alt: "Bespoke ambient living room interior",
+  },
+  {
+    image: STUDIO_ASSETS.kitchen,
+    number: "02",
+    title: "Modular Kitchen Studios",
+    alt: "Precision German-finish modular kitchen",
+  },
+  {
+    image: STUDIO_ASSETS.bedroom,
+    number: "03",
+    title: "Master Bedroom Suites",
+    alt: "Luxury master bedroom woodwork and wardrobes",
+  },
+  {
+    image: STUDIO_ASSETS.dining,
+    number: "04",
+    title: "Contemporary Dining Spaces",
+    alt: "Modern dining and breakfast counter",
+  },
+  {
+    image: STUDIO_ASSETS.port5,
+    number: "05",
+    title: "Turnkey Interior Fit-outs",
+    alt: "Custom architectural interior execution",
+  },
+];
 
 interface PhilosophyProps {
   onNavigate: (id: string) => void;
@@ -13,16 +46,26 @@ interface PhilosophyProps {
 export function Philosophy({ onNavigate }: PhilosophyProps) {
   const sectionRef = useRef<HTMLElement>(null);
   const reduceMotion = useReducedMotion();
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  // Auto scroll/advance slides every 3.8s
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % SLIDES.length);
+    }, 3800);
+
+    return () => clearInterval(timer);
+  }, []);
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start end", "end start"],
   });
 
-  const imageY = useTransform(scrollYProgress, [0, 1], ["-5%", "5%"]);
-  const imageScale = useTransform(scrollYProgress, [0, 1], [1.05, 1]);
   const xCopy = useTransform(scrollYProgress, [0, 1], ["-2%", "1%"]);
   const xImg = useTransform(scrollYProgress, [0, 1], ["2%", "-1%"]);
+
+  const slide = SLIDES[currentSlide];
 
   return (
     <section
@@ -84,25 +127,55 @@ export function Philosophy({ onNavigate }: PhilosophyProps) {
         </motion.button>
       </motion.div>
 
+      {/* Auto-Cycling Image Showcase */}
       <motion.figure
-        className="philosophy-image image-frame group cursor-pointer"
+        className="philosophy-image image-frame group cursor-pointer relative shadow-lg rounded-lg overflow-hidden"
         style={{ x: reduceMotion ? 0 : xImg }}
         initial={{ opacity: 0, y: reduceMotion ? 0 : 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.1 }}
         transition={{ duration: 0.85, ease: [0.23, 1, 0.32, 1] }}
+        onClick={() => setCurrentSlide((prev) => (prev + 1) % SLIDES.length)}
+        title="Click to see next space"
       >
-        <div className="w-full h-full overflow-hidden">
-          <motion.img
-            src={STUDIO_ASSETS.bedroom}
-            alt="Bespoke luxury bedroom interior with custom finishes"
-            className="transition-transform duration-700 ease-out group-hover:scale-105"
-            style={{ y: reduceMotion ? 0 : imageY, scale: reduceMotion ? 1 : imageScale }}
-          />
+        <div className="w-full h-full relative overflow-hidden bg-[#242321] rounded-lg">
+          <AnimatePresence initial={false}>
+            <motion.img
+              key={slide.image}
+              src={slide.image}
+              alt={slide.alt}
+              className="w-full h-full object-cover absolute inset-0 rounded-lg"
+              initial={{ x: "100%", opacity: 0.5, scale: 1.04 }}
+              animate={{ x: "0%", opacity: 1, scale: 1 }}
+              exit={{ x: "-100%", opacity: 0.3, scale: 0.96 }}
+              transition={{ duration: 0.85, ease: [0.32, 0.72, 0, 1] }}
+            />
+          </AnimatePresence>
         </div>
-        <figcaption className="transition-transform duration-300 group-hover:translate-x-1">
-          <span>01</span>
-          <span>Bespoke Bedroom Studies</span>
+
+        {/* Dynamic Caption & Slide Indicator */}
+        <figcaption className="absolute left-0 bottom-0 flex items-center justify-between w-full p-3.5 sm:px-4 sm:py-3 bg-[#161616]/90 backdrop-blur-md text-white text-[0.62rem] uppercase tracking-wider z-10 rounded-b-lg">
+          <div className="flex items-center gap-3">
+            <span className="text-[#ff5b53] font-mono font-bold">{slide.number}</span>
+            <span className="font-medium tracking-widest">{slide.title}</span>
+          </div>
+
+          {/* Progress Dots */}
+          <div className="flex items-center gap-1.5">
+            {SLIDES.map((_, i) => (
+              <button
+                key={i}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setCurrentSlide(i);
+                }}
+                className={`h-1.5 rounded-full transition-all duration-300 ${
+                  i === currentSlide ? "w-5 bg-[#ff5b53]" : "w-1.5 bg-white/40 hover:bg-white/70"
+                }`}
+                aria-label={`Go to slide ${i + 1}`}
+              />
+            ))}
+          </div>
         </figcaption>
       </motion.figure>
     </section>

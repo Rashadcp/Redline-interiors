@@ -244,14 +244,7 @@ export function InteractiveBook({
                   )}
                   <div style={spineGradient} />
 
-                  {/* Corner Peel Callout on Front Cover only */}
-                  {index === 0 && !hasInteracted && flippedCount === 0 && (
-                    <div className="absolute top-3 right-3 bg-white/90 backdrop-blur-md px-2.5 py-1 text-[0.62rem] uppercase font-bold tracking-widest text-[#c52a22] shadow-sm rounded-sm flex items-center gap-1.5 animate-pulse">
-                      <Hand size={12} />
-                      <span>Tap to Open</span>
-                    </div>
-                  )}
-                </div>
+                  </div>
 
                 {/* Back Face of Leaf */}
                 <div
@@ -283,6 +276,19 @@ export function InteractiveBook({
           })}
         </motion.div>
       </div>
+
+      {/* Helper Pill Below Book when Closed */}
+      {flippedCount === 0 && (
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="mt-6 flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-md border border-[#161616]/10 rounded-full shadow-sm text-xs font-semibold uppercase tracking-wider text-[#161616] cursor-pointer hover:bg-white transition-all hover:scale-105"
+          onClick={flipNext}
+        >
+          <Hand size={14} className="text-[#c52a22] animate-bounce" />
+          <span>Click to open lookbook</span>
+        </motion.div>
+      )}
     </div>
   );
 }

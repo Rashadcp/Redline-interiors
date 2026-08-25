@@ -22,6 +22,7 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://redlineinteriors.in"),
   title: "Redline Interiors — Bespoke Home Interiors, Modular Kitchens & Living Spaces | Thalappara, Kerala",
   description:
     "Redline Interiors is a premier interior contractor based in Thalappara, Malappuram, Kerala. Specializing in bespoke modular kitchens, living areas, bedroom suites, and turnkey home interior executions.",
