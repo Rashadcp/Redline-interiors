@@ -34,8 +34,7 @@ export default function ContactPage() {
               Let&apos;s build something <em className="text-[#c52a22] font-normal">enduring.</em>
             </h1>
             <p className="text-lg md:text-xl text-[#615d57] leading-relaxed mt-6 font-light">
-              We welcome commissions for private residences, waterfront villas, and bespoke commercial spaces
-              across Kerala and South India.
+              We welcome commissions for bespoke home interiors, modular kitchens, and bedroom living spaces across Malappuram, Calicut, and Kerala.
             </p>
           </motion.div>
         </section>
@@ -57,7 +56,7 @@ export default function ContactPage() {
                 <CheckCircle2 className="mx-auto text-[#c52a22]" size={42} />
                 <h3 className="font-serif text-2xl text-[#161616]">Thank you for reaching out</h3>
                 <p className="text-sm text-[#615d57] max-w-md mx-auto">
-                  Our principal architectural team in Kochi will review your project requirements and connect within 24 hours.
+                  Our interior design team in Thalappara will review your project requirements and connect shortly.
                 </p>
               </motion.div>
             ) : (
@@ -90,14 +89,17 @@ export default function ContactPage() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-xs uppercase tracking-wider text-[#746f68] font-bold mb-2">
-                      Email Address *
+                      Service Required *
                     </label>
-                    <input
-                      type="email"
-                      required
-                      placeholder="rahul@example.com"
+                    <select
                       className="w-full px-4 py-3 bg-[#f7f5f0] border border-[#161616]/15 focus:border-[#c52a22] focus:outline-none text-sm text-[#161616]"
-                    />
+                    >
+                      <option value="Modular Kitchen">Bespoke Modular Kitchen</option>
+                      <option value="Living Room">Living Room &amp; Media Lounge</option>
+                      <option value="Bedroom Suites">Master Bedroom &amp; Wardrobes</option>
+                      <option value="Dining Area">Dining Area Interior</option>
+                      <option value="Turnkey Full Home">Turnkey Full Home Fit-out</option>
+                    </select>
                   </div>
                   <div>
                     <label className="block text-xs uppercase tracking-wider text-[#746f68] font-bold mb-2">
@@ -106,7 +108,7 @@ export default function ContactPage() {
                     <input
                       type="text"
                       required
-                      placeholder="e.g. Calicut, Kochi, Wayanad"
+                      placeholder="e.g. Thalappara, Calicut, Malappuram"
                       className="w-full px-4 py-3 bg-[#f7f5f0] border border-[#161616]/15 focus:border-[#c52a22] focus:outline-none text-sm text-[#161616]"
                     />
                   </div>
@@ -114,11 +116,11 @@ export default function ContactPage() {
 
                 <div>
                   <label className="block text-xs uppercase tracking-wider text-[#746f68] font-bold mb-2">
-                    Project Scope & Vision
+                    Project Scope &amp; Vision
                   </label>
                   <textarea
                     rows={4}
-                    placeholder="Tell us about the property, plot size, timeline, and architectural requirements..."
+                    placeholder="Tell us about your room size, house plan, timeline, and interior requirements..."
                     className="w-full px-4 py-3 bg-[#f7f5f0] border border-[#161616]/15 focus:border-[#c52a22] focus:outline-none text-sm text-[#161616]"
                   />
                 </div>
@@ -169,6 +171,20 @@ export default function ContactPage() {
                     </a>
                     <span className="text-[0.65rem] text-[#746f68] block mt-0.5">{STUDIO_INFO.hours}</span>
                   </div>
+                </div>
+
+                <div className="pt-3 border-t border-[#161616]/10">
+                  <a
+                    href="https://wa.me/918136940526?text=Hi%20Redline%20Interiors,%20I%20would%20like%20to%20consult%20on%20an%20interior%20project."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full py-3 px-4 bg-[#25D366] hover:bg-[#1EBE5D] text-white text-xs uppercase tracking-wider font-bold transition-all shadow-sm rounded-sm flex items-center justify-center gap-2"
+                  >
+                    <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                      <path d="M17.472 14.382c-.301-.15-1.78-.878-2.056-.979-.276-.1-.476-.15-.676.15-.2.3-.777.98-1.002 1.23-.226.25-.452.28-.753.13-.301-.15-1.27-.468-2.42-1.493-.894-.799-1.498-1.786-1.674-2.087-.176-.301-.019-.464.132-.614.136-.135.301-.351.452-.527.15-.175.201-.3.301-.501.1-.2.05-.376-.025-.526-.075-.15-.677-1.631-.927-2.233-.244-.585-.492-.506-.677-.516-.175-.008-.376-.01-.576-.01-.201 0-.527.075-.802.376-.276.3-1.053 1.03-1.053 2.511s1.078 2.911 1.228 3.112c.15.2 2.122 3.24 5.14 4.544.718.31 1.278.495 1.716.634.721.23 1.376.197 1.895.12.578-.087 1.78-.727 2.031-1.429.251-.702.251-1.303.176-1.429-.076-.125-.276-.225-.577-.376zM12.04 2C6.502 2 2.015 6.486 2.015 12.023c0 1.767.461 3.493 1.336 5.012L2 22l5.127-1.344c1.47.801 3.129 1.223 4.913 1.223 5.537 0 10.024-4.486 10.024-10.023C22.064 6.486 17.577 2 12.04 2zm0 18.344c-1.503 0-2.977-.404-4.262-1.168l-.305-.181-3.167.831.846-3.088-.198-.316c-.84-1.336-1.284-2.888-1.284-4.479 0-4.606 3.748-8.353 8.37-8.353 4.621 0 8.369 3.747 8.369 8.353 0 4.607-3.748 8.353-8.369 8.353z" />
+                    </svg>
+                    <span>Chat on WhatsApp</span>
+                  </a>
                 </div>
               </div>
             </div>

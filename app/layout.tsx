@@ -22,9 +22,34 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "Redline Interiors — Luxury Interior Architecture & Tropical Design | Kerala, India",
+  title: "Redline Interiors — Bespoke Home Interiors, Modular Kitchens & Living Spaces | Thalappara, Kerala",
   description:
-    "Redline Interiors is a premier interior architecture and design studio in Kerala, India. Crafting luxury residences, tropical villas, and bespoke commercial spaces in Kochi, Calicut, Trivandrum, and beyond.",
+    "Redline Interiors is a premier interior contractor based in Thalappara, Malappuram, Kerala. Specializing in bespoke modular kitchens, living areas, bedroom suites, and turnkey home interior executions.",
+  keywords: [
+    "Redline Interiors",
+    "Interior Contractor Kerala",
+    "Modular Kitchen Malappuram",
+    "Living Room Interior Calicut",
+    "Thalappara Interior Design",
+    "Home Interior Contractor",
+    "Bespoke Bedroom Wardrobes",
+  ],
+  openGraph: {
+    title: "Redline Interiors — Bespoke Home Interiors & Modular Kitchens",
+    description: "Crafting beautiful home interiors across Kerala. Specializing in bespoke modular kitchens, living areas, and luxury bedroom suites.",
+    url: "https://redlineinteriors.in",
+    siteName: "Redline Interiors",
+    images: [
+      {
+        url: "/living.png",
+        width: 1200,
+        height: 630,
+        alt: "Redline Interiors Living Room Architecture",
+      },
+    ],
+    locale: "en_IN",
+    type: "website",
+  },
   icons: {
     icon: "/logo1.png",
     shortcut: "/logo1.png",
