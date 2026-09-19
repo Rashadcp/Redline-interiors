@@ -5,7 +5,8 @@ import { MessageCircle } from "lucide-react";
 import { STUDIO_INFO } from "@/lib/data";
 
 export function WhatsAppButton() {
-  const whatsappUrl = `https://wa.me/918136940526?text=Hi%20Redline%20Interiors,%20I%20would%20like%20to%20consult%20on%20an%20interior%20project.`;
+  const cleanPhone = STUDIO_INFO.phone.replace(/[^0-9]/g, "");
+  const whatsappUrl = `https://wa.me/${cleanPhone}?text=Hi%20Redline%20Interiors,%20I%20would%20like%20to%20consult%20on%20an%20interior%20project.`;
 
   return (
     <motion.div
@@ -19,7 +20,7 @@ export function WhatsAppButton() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Chat with Redline Interiors on WhatsApp"
-        title="Chat on WhatsApp (+91 81369 40526)"
+        title={`Chat on WhatsApp (${STUDIO_INFO.phone})`}
         className="w-13 h-13 sm:w-14 sm:h-14 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white flex items-center justify-center shadow-[0_8px_25px_rgba(37,211,102,0.45)] hover:shadow-[0_12px_32px_rgba(37,211,102,0.6)] transition-all duration-300 transform hover:scale-110 active:scale-95 cursor-pointer"
       >
         {/* Official WhatsApp SVG Icon */}

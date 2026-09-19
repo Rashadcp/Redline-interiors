@@ -18,9 +18,11 @@ interface ProjectCardProps {
 
 const CATEGORIES = [
   { label: "All Works", value: "all" },
-  { label: "Villas & Residences", value: "residential" },
-  { label: "Waterfront", value: "waterfront" },
-  { label: "Heritage", value: "heritage" },
+  { label: "Modular Kitchens", value: "kitchen" },
+  { label: "Living Spaces", value: "living" },
+  { label: "Wash Counters", value: "vanity" },
+  { label: "Bedroom Suites", value: "bedroom" },
+  { label: "Dining", value: "dining" },
 ] as const;
 
 function ProjectCard({ project, index, onNavigate }: ProjectCardProps) {
@@ -162,10 +164,8 @@ export function Projects({ onNavigate }: ProjectsProps) {
   const headingX = useTransform(scrollYProgress, [0, 1], ["-2%", "1%"]);
 
   const filteredProjects = PROJECTS.filter((p) => {
-    if (activeTab === "residential") return p.category.toLowerCase().includes("residence");
-    if (activeTab === "waterfront") return p.category.toLowerCase().includes("waterfront") || p.title.toLowerCase().includes("marine") || p.title.toLowerCase().includes("vembanad");
-    if (activeTab === "heritage") return p.category.toLowerCase().includes("heritage");
-    return true;
+    if (activeTab === "all") return true;
+    return p.section === activeTab;
   });
 
   return (

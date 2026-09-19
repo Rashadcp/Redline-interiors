@@ -50,7 +50,7 @@ export function Header({ onNavigate }: HeaderProps) {
             className={`hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-1 px-4 py-1.5 rounded-full transition-all duration-300 ${
               scrolled || pathname !== "/"
                 ? "bg-[#161616]/[0.04] border border-[#161616]/10 shadow-inner"
-                : "bg-black/30 backdrop-blur-md border border-white/15"
+                : "bg-black/30 backdrop-blur-md border border-transparent"
             }`}
             aria-label="Primary navigation"
           >

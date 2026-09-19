@@ -5,7 +5,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Eyebrow } from "@/components/common/Eyebrow";
 import { EditorialMarquee } from "@/components/common/EditorialMarquee";
-import { STUDIO_ASSETS } from "@/lib/data";
+import { STUDIO_ASSETS, STUDIO_INFO } from "@/lib/data";
 import { 
   ArrowUpRight, 
   ChefHat, 
@@ -300,11 +300,11 @@ export default function ServicesPage() {
                 <ArrowUpRight size={16} />
               </Link>
               <a
-                href="tel:+918136940526"
+                href={`tel:${STUDIO_INFO.phone.replace(/\s+/g, "")}`}
                 className="inline-flex items-center gap-2 border border-[#161616]/20 hover:border-[#161616] text-[#161616] px-6 py-4 text-xs tracking-widest uppercase font-bold transition-all"
               >
                 <PhoneCall size={14} />
-                <span>+91 81369 40526</span>
+                <span>{STUDIO_INFO.phone}</span>
               </a>
             </div>
           </div>

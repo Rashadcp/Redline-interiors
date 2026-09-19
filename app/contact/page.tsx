@@ -183,7 +183,7 @@ export default function ContactPage() {
 
                 <div className="pt-3 border-t border-[#161616]/10">
                   <a
-                    href="https://wa.me/918136940526?text=Hi%20Redline%20Interiors,%20I%20would%20like%20to%20consult%20on%20an%20interior%20project."
+                    href={`https://wa.me/${STUDIO_INFO.phone.replace(/[^0-9]/g, "")}?text=Hi%20Redline%20Interiors,%20I%20would%20like%20to%20consult%20on%20an%20interior%20project.`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-full py-3 px-4 bg-[#25D366] hover:bg-[#1EBE5D] text-white text-xs uppercase tracking-wider font-bold transition-all shadow-sm rounded-sm flex items-center justify-center gap-2"
