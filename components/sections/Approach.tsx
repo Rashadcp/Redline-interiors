@@ -59,7 +59,7 @@ export function Approach({ onNavigate }: ApproachProps) {
       >
         <div className="w-full h-full">
           <motion.img
-            src={STUDIO_ASSETS.kitchen}
+            src={STUDIO_ASSETS.kitchenChampagne}
             alt="A beautifully crafted modular kitchen interior designed for seamless utility"
             className="transition-transform duration-700 ease-out group-hover:scale-105"
             style={{ y: reduceMotion ? 0 : imgY, scale: reduceMotion ? 1 : imgScale }}

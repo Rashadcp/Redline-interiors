@@ -27,7 +27,7 @@ const INTERIOR_SERVICES = [
     title: "Bespoke Modular Kitchens",
     tagline: "Ergonomic Culinary Spaces",
     icon: ChefHat,
-    image: STUDIO_ASSETS.kitchen,
+    image: STUDIO_ASSETS.kitchenChampagne,
     description:
       "Precision-crafted modular kitchens designed for seamless workflow, durability, and contemporary elegance. We incorporate European soft-close hardware, custom island counters, and high-efficiency concealed storage.",
     features: [
@@ -43,7 +43,7 @@ const INTERIOR_SERVICES = [
     title: "Living Room & Media Lounge Interiors",
     tagline: "Atmospheric Living Environments",
     icon: Tv,
-    image: STUDIO_ASSETS.port9,
+    image: STUDIO_ASSETS.livingFlutedConsole,
     description:
       "Transforming living spaces into warm, sculptural gathering hubs. We design floating media consoles with back-lit travertine or fluted timber, integrated acoustic paneling, and tailored furniture configurations.",
     features: [
@@ -59,7 +59,7 @@ const INTERIOR_SERVICES = [
     title: "Master & Guest Bedroom Suites",
     tagline: "Serene Private Sanctuaries",
     icon: BedDouble,
-    image: STUDIO_ASSETS.bedroom,
+    image: STUDIO_ASSETS.livingClassicalMolding,
     description:
       "Calming, uncluttered bedroom retreats designed for rest and rejuvenation. Featuring floor-to-ceiling sliding or hinged wardrobes with intelligent inner organizers, upholstered headboards, and hidden dressing vanities.",
     features: [
@@ -75,7 +75,7 @@ const INTERIOR_SERVICES = [
     title: "Dining Spaces & Breakfast Counters",
     tagline: "Refined Hospitality at Home",
     icon: Utensils,
-    image: STUDIO_ASSETS.dining,
+    image: STUDIO_ASSETS.vanityTimberAlcove,
     description:
       "Elevating daily meals and festive entertaining with cohesive dining interiors. From solid teak dining tables and crockery consoles to backlit bar units and dramatic pendant illumination.",
     features: [
@@ -91,7 +91,7 @@ const INTERIOR_SERVICES = [
     title: "Turnkey Inside-Home Interiors & Renovation",
     tagline: "End-to-End Home Transformation",
     icon: Home,
-    image: STUDIO_ASSETS.living,
+    image: STUDIO_ASSETS.livingDualArtSectional,
     description:
       "Complete home interior execution under one roof. We manage electrical redesign, false ceiling gypsum architecture, wall paneling, painting, custom millwork, and final staging for a hassle-free handover.",
     features: [

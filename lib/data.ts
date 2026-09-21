@@ -1,12 +1,14 @@
 export const STUDIO_ASSETS = {
   logo: "/logo1.png",
-  hero: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=2000&q=85",
-  kitchen: "/kitchen.jpg",
+  hero: "/projects/living-cove-chandelier-lounge.jpg",
+  
+  // Kitchen Works (Commit b1d4916)
   kitchenChampagne: "/projects/kitchen-champagne-gloss.jpg",
   kitchenOlive: "/projects/kitchen-olive-matte.jpg",
   kitchenCharcoal: "/projects/kitchen-charcoal-gloss.jpg",
   kitchenSageIsland: "/projects/kitchen-sage-island.jpg",
-  living: "/living.png",
+  
+  // Living Spaces (Commit b1d4916)
   livingFlutedConsole: "/projects/living-modern-fluted-console.jpg",
   livingChandelierLounge: "/projects/living-cove-chandelier-lounge.jpg",
   livingDualArtSectional: "/projects/living-dual-art-sectional.jpg",
@@ -15,17 +17,23 @@ export const STUDIO_ASSETS = {
   livingSymmetricalTv: "/projects/living-symmetrical-backlit-tv.jpg",
   livingCurvedJapandiTv: "/projects/living-curved-japandi-tv.jpg",
   livingParametricArchTv: "/projects/living-parametric-arch-tv.jpg",
+  
+  // Wash Counters & Vanities (Commit b1d4916)
   vanityGranitePendant: "/projects/vanity-granite-fluted-pendant.jpg",
   vanityUnderstairMarble: "/projects/vanity-understair-backlit-marble.jpg",
   vanityTimberAlcove: "/projects/vanity-timber-alcove-halo.jpg",
   vanityOrganicMirror: "/projects/vanity-organic-mirror-partition.jpg",
-  bedroom: "/bedroom.jpg",
-  dining: "/dining.png",
-  port5: "/port5.jpg",
-  port6: "/port6.webp",
-  port7: "/port7.jpg",
-  port9: "/port9.jpg",
-  port10: "/port10.jpg",
+
+  // Legacy mappings directly replaced with high-res photos
+  kitchen: "/projects/kitchen-champagne-gloss.jpg",
+  living: "/projects/living-modern-fluted-console.jpg",
+  bedroom: "/projects/living-classical-molding-warm.jpg",
+  dining: "/projects/vanity-timber-alcove-halo.jpg",
+  port5: "/projects/kitchen-olive-matte.jpg",
+  port6: "/projects/living-dual-art-sectional.jpg",
+  port7: "/projects/living-curved-japandi-tv.jpg",
+  port9: "/projects/living-symmetrical-backlit-tv.jpg",
+  port10: "/projects/kitchen-charcoal-gloss.jpg",
 };
 
 export const NAV_ITEMS = [
@@ -56,31 +64,19 @@ export const PROJECT_SECTIONS = [
     id: "kitchen" as const,
     label: "Modular Kitchens",
     tagline: "Ergonomic culinary architecture, premium acrylic & matte finishes, fluted oak joinery, and ambient illumination",
-    count: 6,
+    count: 4,
   },
   {
     id: "living" as const,
     label: "Living Spaces",
     tagline: "Contemporary open layouts, bespoke media consoles, fluted wall accents, and warm ambient illumination",
-    count: 11,
+    count: 8,
   },
   {
     id: "vanity" as const,
     label: "Wash Counters & Vanities",
     tagline: "Bespoke dining wash counters, halo-lit mirrors, fluted wood cladding, and luxury vessel basins",
     count: 4,
-  },
-  {
-    id: "bedroom" as const,
-    label: "Bedroom Suites",
-    tagline: "Private sanctuaries with integrated wardrobes, acoustic millwork, and soft oak finishes",
-    count: 2,
-  },
-  {
-    id: "dining" as const,
-    label: "Dining Spaces",
-    tagline: "Custom teak dining tables, acoustic wall paneling, and refined social atmospheres",
-    count: 1,
   },
 ];
 
@@ -134,34 +130,10 @@ export const PROJECTS: ProjectItem[] = [
     image: STUDIO_ASSETS.kitchenSageIsland,
     className: "project-large",
   },
-  {
-    number: "05",
-    title: "Minimalist Pure White Modular Kitchen",
-    category: "Kitchen Architecture",
-    section: "kitchen",
-    location: "Kochi, Kerala",
-    area: "350 SQ.FT",
-    year: "2025",
-    scope: "Bespoke Joinery & Island Integration with Concealed Handle Profiles",
-    image: STUDIO_ASSETS.kitchen,
-    className: "project-portrait",
-  },
-  {
-    number: "06",
-    title: "Spanish Cocina & Breakfast Bar",
-    category: "Modular Kitchen",
-    section: "kitchen",
-    location: "Bangalore, Karnataka",
-    area: "380 SQ.FT",
-    year: "2025",
-    scope: "Fluted Terra Cotta & Walnut Cabinets with Natural Stone Countertops",
-    image: STUDIO_ASSETS.port10,
-    className: "project-wide",
-  },
 
   // --- LIVING SPACES SECTION (Featuring High-Resolution Works) ---
   {
-    number: "07",
+    number: "05",
     title: "Modern Fluted TV Console & Ambient Lounge",
     category: "Living Architecture",
     section: "living",
@@ -173,7 +145,7 @@ export const PROJECTS: ProjectItem[] = [
     className: "project-large",
   },
   {
-    number: "08",
+    number: "06",
     title: "Warm Minimalist Mood Lounge & Ring Chandelier",
     category: "Living Lounge",
     section: "living",
@@ -185,7 +157,7 @@ export const PROJECTS: ProjectItem[] = [
     className: "project-tall",
   },
   {
-    number: "09",
+    number: "07",
     title: "Dual Art Minimalist Sectional Living Suite",
     category: "Spatial Architecture",
     section: "living",
@@ -197,7 +169,7 @@ export const PROJECTS: ProjectItem[] = [
     className: "project-wide",
   },
   {
-    number: "10",
+    number: "08",
     title: "Neo-Classical Molding & Warm Linen Living Room",
     category: "Living Space",
     section: "living",
@@ -209,7 +181,7 @@ export const PROJECTS: ProjectItem[] = [
     className: "project-portrait",
   },
   {
-    number: "11",
+    number: "09",
     title: "Open Partition TV Unit & Display Bookshelf",
     category: "Media Architecture",
     section: "living",
@@ -221,7 +193,7 @@ export const PROJECTS: ProjectItem[] = [
     className: "project-large",
   },
   {
-    number: "12",
+    number: "10",
     title: "Symmetrical Backlit TV Wall & Fluted Oak Niche",
     category: "Living Millwork",
     section: "living",
@@ -233,7 +205,7 @@ export const PROJECTS: ProjectItem[] = [
     className: "project-wide",
   },
   {
-    number: "13",
+    number: "11",
     title: "Curved Minimalist Japandi TV Console",
     category: "Living Architecture",
     section: "living",
@@ -245,7 +217,7 @@ export const PROJECTS: ProjectItem[] = [
     className: "project-tall",
   },
   {
-    number: "14",
+    number: "12",
     title: "Parametric Halo Arch TV Feature Wall",
     category: "Spatial Architecture",
     section: "living",
@@ -256,46 +228,10 @@ export const PROJECTS: ProjectItem[] = [
     image: STUDIO_ASSETS.livingParametricArchTv,
     className: "project-large",
   },
-  {
-    number: "15",
-    title: "Contemporary Open Living Area",
-    category: "Living Space",
-    section: "living",
-    location: "Calicut, Kerala",
-    area: "800 SQ.FT",
-    year: "2025",
-    scope: "Full Spatial Design & Ambient Architectural Lighting",
-    image: STUDIO_ASSETS.living,
-    className: "project-tall",
-  },
-  {
-    number: "16",
-    title: "Bespoke Media Console & Lounge",
-    category: "Living Millwork",
-    section: "living",
-    location: "Kottayam, Kerala",
-    area: "420 SQ.FT",
-    year: "2025",
-    scope: "Backlit Travertine & Fluted Oak Finish with Concealed Audio Integration",
-    image: STUDIO_ASSETS.port9,
-    className: "project-portrait",
-  },
-  {
-    number: "17",
-    title: "Warm Ambient Living Lounge",
-    category: "Spatial Architecture",
-    section: "living",
-    location: "Kochi, Kerala",
-    area: "540 SQ.FT",
-    year: "2024",
-    scope: "Cove Lighting & Soft Linen Palette with Custom Sectional Furniture",
-    image: STUDIO_ASSETS.port6,
-    className: "project-wide",
-  },
 
   // --- WASH COUNTERS & VANITIES SECTION ---
   {
-    number: "18",
+    number: "13",
     title: "Granite & Fluted Oak Floating Vanity",
     category: "Wash Counter",
     section: "vanity",
@@ -307,7 +243,7 @@ export const PROJECTS: ProjectItem[] = [
     className: "project-portrait",
   },
   {
-    number: "19",
+    number: "14",
     title: "Under-Staircase Luxury Marble Wash Counter",
     category: "Bespoke Vanity",
     section: "vanity",
@@ -319,7 +255,7 @@ export const PROJECTS: ProjectItem[] = [
     className: "project-tall",
   },
   {
-    number: "20",
+    number: "15",
     title: "Timber Alcove Dining Wash Counter Portal",
     category: "Dining Wash Area",
     section: "vanity",
@@ -331,7 +267,7 @@ export const PROJECTS: ProjectItem[] = [
     className: "project-large",
   },
   {
-    number: "21",
+    number: "16",
     title: "Organic Mirror & Partition Foyer Wash Counter",
     category: "Powder Vanity",
     section: "vanity",
@@ -340,46 +276,6 @@ export const PROJECTS: ProjectItem[] = [
     year: "2025",
     scope: "Freeform Asymmetrical Halo LED Mirror, Black Metal Slatted Divider with Indoor Plants & Quartz Top",
     image: STUDIO_ASSETS.vanityOrganicMirror,
-    className: "project-tall",
-  },
-
-  // --- BEDROOM SUITES SECTION ---
-  {
-    number: "22",
-    title: "Luxury Master Bedroom Suite",
-    category: "Bedroom Architecture",
-    section: "bedroom",
-    location: "Trivandrum, Kerala",
-    area: "450 SQ.FT",
-    year: "2024",
-    scope: "Warm Minimalist Woodwork, Headboard Paneling & Soft Textures",
-    image: STUDIO_ASSETS.bedroom,
-    className: "project-wide",
-  },
-  {
-    number: "23",
-    title: "Serene Minimalist Bedroom",
-    category: "Private Suite",
-    section: "bedroom",
-    location: "Calicut, Kerala",
-    area: "480 SQ.FT",
-    year: "2024",
-    scope: "Integrated Wardrobe & Soft Oak Trim with Minimalist Bed Platform",
-    image: STUDIO_ASSETS.port7,
-    className: "project-portrait",
-  },
-
-  // --- DINING SPACES SECTION ---
-  {
-    number: "24",
-    title: "Elegant Fine Dining Space",
-    category: "Dining Interior",
-    section: "dining",
-    location: "Thrissur, Kerala",
-    area: "320 SQ.FT",
-    year: "2024",
-    scope: "Custom Teak Tables, Acoustic Paneling & Statement Pendant Fixture",
-    image: STUDIO_ASSETS.dining,
     className: "project-tall",
   },
 ];

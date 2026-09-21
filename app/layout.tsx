@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     siteName: "Redline Interiors",
     images: [
       {
-        url: "/living.png",
+        url: "/projects/living-modern-fluted-console.jpg",
         width: 1200,
         height: 630,
         alt: "Redline Interiors Living Room Architecture",

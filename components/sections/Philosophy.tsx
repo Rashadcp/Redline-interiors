@@ -8,34 +8,34 @@ import { STUDIO_ASSETS } from "@/lib/data";
 
 const SLIDES = [
   {
-    image: STUDIO_ASSETS.living,
+    image: STUDIO_ASSETS.livingFlutedConsole,
     number: "01",
     title: "Living Room & Media Lounge",
-    alt: "Bespoke ambient living room interior",
+    alt: "Suspended backlit media console and fluted oak wall panels",
   },
   {
-    image: STUDIO_ASSETS.kitchen,
+    image: STUDIO_ASSETS.kitchenChampagne,
     number: "02",
     title: "Modular Kitchen Studios",
-    alt: "Precision German-finish modular kitchen",
+    alt: "High-gloss champagne acrylics and fluted walnut joinery",
   },
   {
-    image: STUDIO_ASSETS.bedroom,
+    image: STUDIO_ASSETS.vanityTimberAlcove,
     number: "03",
-    title: "Master Bedroom Suites",
-    alt: "Luxury master bedroom woodwork and wardrobes",
+    title: "Dining & Vanity Portals",
+    alt: "Architectural timber portal archway and backlit halo mirror",
   },
   {
-    image: STUDIO_ASSETS.dining,
+    image: STUDIO_ASSETS.livingChandelierLounge,
     number: "04",
-    title: "Contemporary Dining Spaces",
-    alt: "Modern dining and breakfast counter",
+    title: "Contemporary Ambient Lounges",
+    alt: "Curved velvet club chairs and warm double ring brass chandelier",
   },
   {
-    image: STUDIO_ASSETS.port5,
+    image: STUDIO_ASSETS.vanityGranitePendant,
     number: "05",
-    title: "Turnkey Interior Fit-outs",
-    alt: "Custom architectural interior execution",
+    title: "Bespoke Wash Counters & Millwork",
+    alt: "Granite feature wall and fluted oak suspended vanity",
   },
 ];
 
@@ -113,6 +113,7 @@ export function Philosophy({ onNavigate }: PhilosophyProps) {
           transition={{ duration: 0.8, delay: 0.1, ease: [0.23, 1, 0.32, 1] }}
           style={{ originY: 0 }}
         />
+        
         <p>
           Redline Interiors creates bespoke residential spaces, from elegant bedrooms and vibrant living areas to modern modular kitchens. We synthesize high-quality materials and intelligent design to bring your dream home to life.
         </p>

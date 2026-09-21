@@ -59,17 +59,21 @@ export function InteractiveBookSection({ onNavigate }: InteractiveBookSectionPro
           <InteractiveBook
             width={310}
             height={460}
-            frontCover={STUDIO_ASSETS.bedroom}
+            frontCover={STUDIO_ASSETS.livingFlutedConsole}
             backCover="/back_cover_new.jpg"
             innerPages={[
-              STUDIO_ASSETS.kitchen, 
-              STUDIO_ASSETS.living,
-              STUDIO_ASSETS.dining,
-              STUDIO_ASSETS.port5, 
-              STUDIO_ASSETS.port6, 
-              STUDIO_ASSETS.port7,
-              STUDIO_ASSETS.port9,
-              STUDIO_ASSETS.port10
+              STUDIO_ASSETS.kitchenChampagne,
+              STUDIO_ASSETS.kitchenOlive,
+              STUDIO_ASSETS.kitchenCharcoal,
+              STUDIO_ASSETS.kitchenSageIsland,
+              STUDIO_ASSETS.livingChandelierLounge,
+              STUDIO_ASSETS.livingDualArtSectional,
+              STUDIO_ASSETS.livingCurvedJapandiTv,
+              STUDIO_ASSETS.livingParametricArchTv,
+              STUDIO_ASSETS.vanityGranitePendant,
+              STUDIO_ASSETS.vanityTimberAlcove,
+              STUDIO_ASSETS.vanityOrganicMirror,
+              STUDIO_ASSETS.vanityUnderstairMarble,
             ]}
           />
         </div>
