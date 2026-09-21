@@ -89,7 +89,7 @@ export default function ProjectsPage() {
                   <span className="block font-mono font-bold text-[#161616] text-sm">
                     {PROJECTS.length.toString().padStart(2, "0")}
                   </span>
-                  <span className="tracking-wider uppercase text-[0.6rem]">Commissions</span>
+                  <span className="tracking-wider uppercase text-[0.6rem]">Works Completed</span>
                 </div>
                 <div>
                   <span className="block font-mono font-bold text-[#161616] text-sm">100%</span>
@@ -315,7 +315,7 @@ export default function ProjectsPage() {
                                 </div>
                                 <div>
                                   <span className="block text-[0.6rem] tracking-wider uppercase text-[#8a857e]">
-                                    Commission Year
+                                    Project Year
                                   </span>
                                   <span className="font-mono font-medium text-[#161616]">{project.year}</span>
                                 </div>
@@ -330,16 +330,6 @@ export default function ProjectsPage() {
                                   <Eye size={14} className="text-[#c52a22]" />
                                   <span>View High-Res Photo</span>
                                 </button>
-                                <span className="text-[#161616]/20">·</span>
-                                <Link
-                                  href="/contact"
-                                  className="inline-flex items-center gap-2 text-xs tracking-wider uppercase font-bold text-[#161616] hover:text-[#c52a22] transition-colors group/btn"
-                                >
-                                  <span>Commission Similar Space</span>
-                                  <span className="w-7 h-7 rounded-full border border-[#161616]/20 flex items-center justify-center group-hover/btn:bg-[#161616] group-hover/btn:border-[#161616] group-hover/btn:text-white transition-all">
-                                    <ArrowUpRight size={13} />
-                                  </span>
-                                </Link>
                               </div>
                             </div>
                           </div>
@@ -438,13 +428,13 @@ export default function ProjectsPage() {
                             <span className="text-[0.65rem] tracking-wider uppercase font-bold text-[#746f68]">
                               {project.category}
                             </span>
-                            <Link
-                              href="/contact"
-                              className="text-xs font-semibold text-[#161616] hover:text-[#c52a22] inline-flex items-center gap-1 transition-colors"
+                            <button
+                              onClick={() => setLightboxProject(project)}
+                              className="text-xs font-semibold text-[#746f68] hover:text-[#161616] inline-flex items-center gap-1.5 transition-colors cursor-pointer"
                             >
-                              <span>Commission</span>
-                              <ArrowUpRight size={13} />
-                            </Link>
+                              <Eye size={13} className="text-[#c52a22]" />
+                              <span>View Photo</span>
+                            </button>
                           </div>
                         </div>
                       </motion.div>
