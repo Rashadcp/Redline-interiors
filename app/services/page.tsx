@@ -59,7 +59,7 @@ const INTERIOR_SERVICES = [
     title: "Master & Guest Bedroom Suites",
     tagline: "Serene Private Sanctuaries",
     icon: BedDouble,
-    image: STUDIO_ASSETS.livingClassicalMolding,
+    image: STUDIO_ASSETS.bedroomMasterSuite,
     description:
       "Calming, uncluttered bedroom retreats designed for rest and rejuvenation. Featuring floor-to-ceiling sliding or hinged wardrobes with intelligent inner organizers, upholstered headboards, and hidden dressing vanities.",
     features: [
@@ -75,7 +75,7 @@ const INTERIOR_SERVICES = [
     title: "Dining Spaces & Breakfast Counters",
     tagline: "Refined Hospitality at Home",
     icon: Utensils,
-    image: STUDIO_ASSETS.vanityTimberAlcove,
+    image: STUDIO_ASSETS.diningMarbleCounter,
     description:
       "Elevating daily meals and festive entertaining with cohesive dining interiors. From solid teak dining tables and crockery consoles to backlit bar units and dramatic pendant illumination.",
     features: [

@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { motion, useAnimationControls, AnimatePresence } from "framer-motion";
-import { Hand } from "lucide-react";
+import { Hand, ChevronLeft, ChevronRight, RotateCcw } from "lucide-react";
 
 interface InteractiveBookProps {
   width?: number;
@@ -31,13 +31,17 @@ export function InteractiveBook({
   borderRadius = 8,
   shadow = { color: "#000", opacity: 0.35, blur: 14, offsetX: 6, offsetY: 6, spread: 0 },
 }: InteractiveBookProps) {
-  const frontAndInner = [frontCover, ...innerPages].filter(Boolean);
-  const allImages =
-    frontAndInner.length % 2 !== 0
-      ? [...frontAndInner, backCover]
-      : [...frontAndInner, null, backCover];
+  // Ensure valid inner pages
+  const validInner = innerPages.filter(Boolean);
+  // An open book needs an even number of inner pages (2 pages per spread)
+  // If an odd number is passed, gracefully pair the last page with backCover so it's never null/blank!
+  const cleanInner =
+    validInner.length % 2 === 0
+      ? validInner
+      : [...validInner, backCover];
 
-  const leafPairs: any[] = [];
+  const allImages = [frontCover, ...cleanInner, backCover];
+  const leafPairs: [string, string][] = [];
   for (let i = 0; i < allImages.length; i += 2) {
     leafPairs.push([allImages[i], allImages[i + 1]]);
   }
@@ -51,8 +55,8 @@ export function InteractiveBook({
   const flippedRef = React.useRef(0);
   const touchStartX = React.useRef<number | null>(null);
 
-  // Animation controls for up to 15 leaves
-  const controlsPool = Array.from({ length: 15 }, () => useAnimationControls());
+  // Animation controls for up to 25 leaves
+  const controlsPool = Array.from({ length: 25 }, () => useAnimationControls());
   const bookContainerControls = useAnimationControls();
 
   // Handle responsive sizing dynamically
@@ -109,6 +113,20 @@ export function InteractiveBook({
       const indexToFlip = flippedRef.current;
       flippedRef.current = indexToFlip + 1;
       setFlippedCount(flippedRef.current);
+
+      if (indexToFlip === totalLeaves - 1) {
+        // Flipping the last leaf closes the book to the back cover! Center the back cover
+        bookContainerControls.start({
+          x: effectiveWidth,
+          transition: { duration: 0.7, ease: "easeInOut" },
+        });
+      } else {
+        bookContainerControls.start({
+          x: effectiveWidth / 2,
+          transition: { duration: 0.5, ease: "easeInOut" },
+        });
+      }
+
       await controlsPool[indexToFlip].start({
         rotateY: -180,
         transition: { duration: 0.7, ease: [0.4, 0, 0.2, 1] },
@@ -133,6 +151,11 @@ export function InteractiveBook({
           transition: { duration: 0.6, ease: "easeInOut" },
         });
         setIsBookClosed(true);
+      } else {
+        bookContainerControls.start({
+          x: effectiveWidth / 2,
+          transition: { duration: 0.6, ease: "easeInOut" },
+        });
       }
 
       await controlsPool[indexToUnflip].start({
@@ -147,8 +170,8 @@ export function InteractiveBook({
     setHasInteracted(true);
     bookContainerControls.start({ x: 0, transition: { duration: 0.8, ease: "easeInOut" } });
     for (let i = totalLeaves - 1; i >= 0; i--) {
-      controlsPool[i].start({ rotateY: 0, transition: { duration: 0.45, ease: "easeInOut" } });
-      await new Promise((r) => setTimeout(r, 60));
+      controlsPool[i].start({ rotateY: 0, transition: { duration: 0.4, ease: "easeInOut" } });
+      await new Promise((r) => setTimeout(r, 45));
     }
     flippedRef.current = 0;
     setFlippedCount(0);
@@ -192,7 +215,16 @@ export function InteractiveBook({
           perspective: 2500,
           cursor: "pointer",
         }}
-        onClick={flipNext}
+        onClick={(e) => {
+          const rect = e.currentTarget.getBoundingClientRect();
+          const clickX = e.clientX - rect.left;
+          // If book is open, clicking the left half flips back, clicking right half flips forward
+          if (!isBookClosed && flippedRef.current > 0 && flippedRef.current < totalLeaves && clickX < rect.width / 2) {
+            flipPrev();
+          } else {
+            flipNext();
+          }
+        }}
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
       >
@@ -243,8 +275,7 @@ export function InteractiveBook({
                     />
                   )}
                   <div style={spineGradient} />
-
-                  </div>
+                </div>
 
                 {/* Back Face of Leaf */}
                 <div
@@ -277,8 +308,8 @@ export function InteractiveBook({
         </motion.div>
       </div>
 
-      {/* Helper Pill Below Book when Closed */}
-      {flippedCount === 0 && (
+      {/* Helper Navigation Below Book */}
+      {flippedCount === 0 ? (
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -287,6 +318,58 @@ export function InteractiveBook({
         >
           <Hand size={14} className="text-[#c52a22] animate-bounce" />
           <span>Click to open lookbook</span>
+        </motion.div>
+      ) : (
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="mt-6 flex items-center gap-2.5 sm:gap-3 px-3 sm:px-4 py-2 bg-white/95 backdrop-blur-md border border-[#161616]/10 rounded-full shadow-md text-xs font-medium text-[#161616]"
+        >
+          <button
+            type="button"
+            className="flex items-center gap-1 px-2.5 py-1 rounded-full hover:bg-black/5 active:scale-95 transition-all text-[#161616] cursor-pointer disabled:opacity-30 disabled:pointer-events-none"
+            onClick={(e) => {
+              e.stopPropagation();
+              flipPrev();
+            }}
+            disabled={flippedCount === 0}
+            title="Previous Page"
+          >
+            <ChevronLeft size={16} />
+            <span className="hidden sm:inline">Prev</span>
+          </button>
+
+          <span className="font-mono text-[0.72rem] tracking-wider uppercase text-[#746f68] px-2 border-x border-[#161616]/10">
+            {currentPageLabel}
+          </span>
+
+          {flippedCount < totalLeaves ? (
+            <button
+              type="button"
+              className="flex items-center gap-1 px-3 py-1 rounded-full bg-[#161616] text-white hover:bg-[#c52a22] active:scale-95 transition-all cursor-pointer font-semibold shadow-sm"
+              onClick={(e) => {
+                e.stopPropagation();
+                flipNext();
+              }}
+              title="Next Page"
+            >
+              <span className="hidden sm:inline">Next</span>
+              <ChevronRight size={16} />
+            </button>
+          ) : (
+            <button
+              type="button"
+              className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#c52a22] text-white hover:bg-[#a5221b] active:scale-95 transition-all cursor-pointer font-semibold shadow-sm"
+              onClick={(e) => {
+                e.stopPropagation();
+                resetBook();
+              }}
+              title="Restart Lookbook"
+            >
+              <RotateCcw size={13} />
+              <span>Replay</span>
+            </button>
+          )}
         </motion.div>
       )}
     </div>

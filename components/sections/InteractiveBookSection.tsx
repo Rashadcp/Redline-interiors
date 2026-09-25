@@ -70,6 +70,8 @@ export function InteractiveBookSection({ onNavigate }: InteractiveBookSectionPro
               STUDIO_ASSETS.livingDualArtSectional,
               STUDIO_ASSETS.livingCurvedJapandiTv,
               STUDIO_ASSETS.livingParametricArchTv,
+              STUDIO_ASSETS.bedroomMasterSuite,
+              STUDIO_ASSETS.diningMarbleCounter,
               STUDIO_ASSETS.vanityGranitePendant,
               STUDIO_ASSETS.vanityTimberAlcove,
               STUDIO_ASSETS.vanityOrganicMirror,

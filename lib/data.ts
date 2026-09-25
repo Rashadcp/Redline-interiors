@@ -24,11 +24,17 @@ export const STUDIO_ASSETS = {
   vanityTimberAlcove: "/projects/vanity-timber-alcove-halo.jpg",
   vanityOrganicMirror: "/projects/vanity-organic-mirror-partition.jpg",
 
+  // Bedroom Suites
+  bedroomMasterSuite: "/projects/bedroom-master-suite-warm.jpg",
+
+  // Dining Spaces & Breakfast Counters
+  diningMarbleCounter: "/projects/dining-marble-breakfast-counter.jpg",
+
   // Legacy mappings directly replaced with high-res photos
   kitchen: "/projects/kitchen-champagne-gloss.jpg",
   living: "/projects/living-modern-fluted-console.jpg",
-  bedroom: "/projects/living-classical-molding-warm.jpg",
-  dining: "/projects/vanity-timber-alcove-halo.jpg",
+  bedroom: "/projects/bedroom-master-suite-warm.jpg",
+  dining: "/projects/dining-marble-breakfast-counter.jpg",
   port5: "/projects/kitchen-olive-matte.jpg",
   port6: "/projects/living-dual-art-sectional.jpg",
   port7: "/projects/living-curved-japandi-tv.jpg",

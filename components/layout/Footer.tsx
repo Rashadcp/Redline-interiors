@@ -33,15 +33,6 @@ export function Footer() {
           </a>
         </div>
 
-        <div>
-          <p className="footer-label">Follow</p>
-          {STUDIO_INFO.socials.map((social) => (
-            <a key={social.label} href={social.href}>
-              {social.label}
-            </a>
-          ))}
-        </div>
-
         <div className="footer-nav">
           <p className="footer-label">Navigate</p>
           {NAV_ITEMS.map(({ label, id, href }) => (
