@@ -312,9 +312,7 @@ export const STUDIO_INFO = {
     url: "https://maps.app.goo.gl/FgnbDU9m9Lf4jxb66?g_st=iwb",
   },
   socials: [
-    { label: "Instagram", href: "#home" },
-    { label: "Pinterest", href: "#home" },
-    { label: "LinkedIn", href: "#home" },
+    { label: "Instagram", href: "https://www.instagram.com/redline_interiors_/?stkn=MWIycHg1azE0eDB4" },
   ],
   copyrightYear: 2026,
   developer: {

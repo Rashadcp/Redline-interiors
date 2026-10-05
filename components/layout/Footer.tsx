@@ -41,6 +41,35 @@ export function Footer() {
             </Link>
           ))}
         </div>
+
+        <div>
+          <p className="footer-label">Follow</p>
+          {STUDIO_INFO.socials.map(({ label, href }) => (
+            <a
+              key={label}
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="footer-social hover:text-[#c52a22] transition-colors"
+            >
+              <svg
+                aria-hidden="true"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.7"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="h-4 w-4"
+              >
+                <rect x="3" y="3" width="18" height="18" rx="5" />
+                <circle cx="12" cy="12" r="4" />
+                <circle cx="17.5" cy="6.5" r=".75" fill="currentColor" stroke="none" />
+              </svg>
+              {label}
+            </a>
+          ))}
+        </div>
       </div>
 
       <div className="footer-bottom flex flex-col sm:flex-row items-center justify-between gap-3 text-xs opacity-75">
