@@ -26,6 +26,10 @@ export const STUDIO_ASSETS = {
 
   // Bedroom Suites
   bedroomMasterSuite: "/projects/bedroom-master-suite-warm.jpg",
+  bedroomMirroredSuite: "/projects/bedroom-mirrored-suite.png",
+  bedroomSageWardrobe: "/projects/bedroom-sage-wardrobe.png",
+  bedroomWarmWardrobe: "/projects/bedroom-warm-wardrobe.png",
+  bedroomDisplayWardrobe: "/projects/bedroom-display-wardrobe.png",
 
   // Dining Spaces & Breakfast Counters
   diningMarbleCounter: "/projects/dining-marble-breakfast-counter.jpg",
@@ -46,11 +50,11 @@ export const NAV_ITEMS = [
   { label: "Home", id: "home", href: "/" },
   { label: "About", id: "about", href: "/about" },
   { label: "Services", id: "services", href: "/services" },
-  { label: "Projects", id: "projects", href: "/projects" },
+  { label: "Gallery", id: "gallery", href: "/projects" },
   { label: "Contact", id: "contact", href: "/contact" },
 ] as const;
 
-export type ProjectSection = "kitchen" | "living" | "vanity" | "bedroom" | "dining";
+export type ProjectSection = "kitchen" | "living" | "vanity" | "bedroom";
 
 export interface ProjectItem {
   number: string;
@@ -82,6 +86,12 @@ export const PROJECT_SECTIONS = [
     id: "vanity" as const,
     label: "Wash Counters & Vanities",
     tagline: "Bespoke dining wash counters, halo-lit mirrors, fluted wood cladding, and luxury vessel basins",
+    count: 4,
+  },
+  {
+    id: "bedroom" as const,
+    label: "Bedrooms",
+    tagline: "Restful private suites shaped with warm materials, tailored storage, and soft layered lighting",
     count: 4,
   },
 ];
@@ -283,6 +293,55 @@ export const PROJECTS: ProjectItem[] = [
     scope: "Freeform Asymmetrical Halo LED Mirror, Black Metal Slatted Divider with Indoor Plants & Quartz Top",
     image: STUDIO_ASSETS.vanityOrganicMirror,
     className: "project-tall",
+  },
+  // --- BEDROOM SECTION ---
+  {
+    number: "17",
+    title: "Soft Ivory Bedroom with Mirrored Wardrobe",
+    category: "Bedroom",
+    section: "bedroom",
+    location: "Malappuram, Kerala",
+    area: "260 SQ.FT",
+    year: "2026",
+    scope: "Full-height mirrored wardrobe, upholstered bed, fluted wall treatment, and warm integrated lighting.",
+    image: STUDIO_ASSETS.bedroomMirroredSuite,
+    className: "project-large",
+  },
+  {
+    number: "18",
+    title: "Sage Wardrobe Bedroom Suite",
+    category: "Bedroom",
+    section: "bedroom",
+    location: "Malappuram, Kerala",
+    area: "240 SQ.FT",
+    year: "2026",
+    scope: "Sage-toned full-height wardrobe, open display joinery, soft ceiling cove lighting, and tailored window treatments.",
+    image: STUDIO_ASSETS.bedroomSageWardrobe,
+    className: "project-tall",
+  },
+  {
+    number: "19",
+    title: "Warm Timber Wardrobe Bedroom",
+    category: "Bedroom",
+    section: "bedroom",
+    location: "Malappuram, Kerala",
+    area: "250 SQ.FT",
+    year: "2026",
+    scope: "Two-tone wardrobe wall, timber dressing niche, arched mirror, and a coordinated bedside composition.",
+    image: STUDIO_ASSETS.bedroomWarmWardrobe,
+    className: "project-wide",
+  },
+  {
+    number: "20",
+    title: "Olive Display Wardrobe Bedroom",
+    category: "Bedroom",
+    section: "bedroom",
+    location: "Malappuram, Kerala",
+    area: "245 SQ.FT",
+    year: "2026",
+    scope: "Integrated wardrobe with illuminated glass display, layered olive finishes, and focused ceiling lighting.",
+    image: STUDIO_ASSETS.bedroomDisplayWardrobe,
+    className: "project-large",
   },
 ];
 

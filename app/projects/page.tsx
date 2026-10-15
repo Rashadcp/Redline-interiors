@@ -23,7 +23,7 @@ import {
 import Link from "next/link";
 
 export default function ProjectsPage() {
-  const [viewMode, setViewMode] = useState<"showcase" | "gallery" | "index">("showcase");
+  const [viewMode, setViewMode] = useState<"showcase" | "gallery" | "index">("gallery");
   const [selectedSection, setSelectedSection] = useState<"all" | ProjectSection>("all");
   const [hoveredProject, setHoveredProject] = useState<string | null>(null);
   const [lightboxProject, setLightboxProject] = useState<ProjectItem | null>(null);
@@ -73,12 +73,12 @@ export default function ProjectsPage() {
             className="flex flex-col lg:flex-row lg:items-end justify-between gap-8"
           >
             <div className="max-w-2xl">
-              <Eyebrow>Archive &amp; Portfolio · Redline Interiors</Eyebrow>
+              <Eyebrow>Gallery · Redline Interiors</Eyebrow>
               <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif font-normal tracking-tight text-[#161616] leading-[1.05] mt-3">
-                Selected <em>works</em> &amp; spatial studies.
+                Explore our <em>interior gallery.</em>
               </h1>
               <p className="text-sm md:text-base text-[#746f68] font-light leading-relaxed mt-4">
-                A curated survey of bespoke modular kitchens, living areas, bedroom suites, and fine dining environments crafted across South India.
+                Browse our work by space—from modular kitchens and living areas to bedrooms and bespoke vanities.
               </p>
             </div>
 
@@ -89,7 +89,7 @@ export default function ProjectsPage() {
                   <span className="block font-mono font-bold text-[#161616] text-sm">
                     {PROJECTS.length.toString().padStart(2, "0")}
                   </span>
-                  <span className="tracking-wider uppercase text-[0.6rem]">Works Completed</span>
+                  <span className="tracking-wider uppercase text-[0.6rem]">Gallery Images</span>
                 </div>
                 <div>
                   <span className="block font-mono font-bold text-[#161616] text-sm">100%</span>
@@ -390,11 +390,8 @@ export default function ProjectsPage() {
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/20 opacity-60 group-hover:opacity-90 transition-opacity duration-300" />
 
-                          {/* Top Badges */}
-                          <div className="absolute top-3.5 inset-x-3.5 flex items-center justify-between pointer-events-none">
-                            <span className="bg-[#161616]/85 backdrop-blur-md px-2.5 py-1 text-[0.6rem] tracking-widest uppercase text-white font-medium rounded-sm">
-                              {project.location}
-                            </span>
+                          {/* Area Badge */}
+                          <div className="absolute top-3.5 right-3.5 pointer-events-none">
                             <span className="bg-white/95 backdrop-blur-md px-2.5 py-1 text-[0.6rem] tracking-widest uppercase text-[#161616] font-mono font-bold rounded-sm">
                               {project.area}
                             </span>

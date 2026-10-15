@@ -21,6 +21,7 @@ const CATEGORIES = [
   { label: "Modular Kitchens", value: "kitchen" },
   { label: "Living Spaces", value: "living" },
   { label: "Wash Counters", value: "vanity" },
+  { label: "Bedrooms", value: "bedroom" },
 ] as const;
 
 function ProjectCard({ project, index, onNavigate }: ProjectCardProps) {
