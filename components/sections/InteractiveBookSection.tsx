@@ -62,6 +62,10 @@ export function InteractiveBookSection({ onNavigate }: InteractiveBookSectionPro
             frontCover={STUDIO_ASSETS.livingFlutedConsole}
             backCover="/back_cover_new.jpg"
             innerPages={[
+              STUDIO_ASSETS.bedroomMirroredSuite,
+              STUDIO_ASSETS.bedroomSageWardrobe,
+              STUDIO_ASSETS.bedroomWarmWardrobe,
+              STUDIO_ASSETS.bedroomDisplayWardrobe,
               STUDIO_ASSETS.kitchenChampagne,
               STUDIO_ASSETS.kitchenOlive,
               STUDIO_ASSETS.kitchenCharcoal,
@@ -70,7 +74,6 @@ export function InteractiveBookSection({ onNavigate }: InteractiveBookSectionPro
               STUDIO_ASSETS.livingDualArtSectional,
               STUDIO_ASSETS.livingCurvedJapandiTv,
               STUDIO_ASSETS.livingParametricArchTv,
-              STUDIO_ASSETS.bedroomMasterSuite,
               STUDIO_ASSETS.diningMarbleCounter,
               STUDIO_ASSETS.vanityGranitePendant,
               STUDIO_ASSETS.vanityTimberAlcove,

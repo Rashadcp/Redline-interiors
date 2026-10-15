@@ -368,7 +368,7 @@ export default function ProjectsPage() {
                   </div>
 
                   {/* High-Impact Gallery Grid */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5 lg:gap-6">
                     {sectionProjects.map((project) => (
                       <motion.div
                         key={project.number}
@@ -407,7 +407,7 @@ export default function ProjectsPage() {
                         </div>
 
                         {/* Card Info Details */}
-                        <div className="p-6 flex flex-col justify-between flex-grow">
+                        <div className="p-4 flex flex-col justify-between flex-grow">
                           <div>
                             <div className="flex items-center justify-between text-xs text-[#746f68] mb-2 font-mono">
                               <span className="text-[#c52a22] font-semibold">{project.number}</span>

@@ -4,6 +4,7 @@ import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import { WhatsAppButton } from "@/components/common/WhatsAppButton";
+import { SmoothScroll } from "@/components/common/SmoothScroll";
 import "./globals.css";
 
 const cormorant = Cormorant_Garamond({
@@ -68,6 +69,7 @@ export default function RootLayout({
       <body className="antialiased">
         <ThemeProvider defaultTheme="light">
           <TooltipProvider>
+            <SmoothScroll />
             <Toaster />
             {children}
             <WhatsAppButton />

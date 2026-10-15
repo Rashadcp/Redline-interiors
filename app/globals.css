@@ -1,6 +1,7 @@
 /* Redline Interiors visual system: contemporary editorial modernism; warm gallery-white, near-black, and vermilion accent; asymmetric editorial axes; Cormorant Garamond + Manrope; restrained spatial motion. */
 @import "tailwindcss";
 @import "tw-animate-css";
+@import "lenis/dist/lenis.css";
 
 @custom-variant dark (&:is(.dark *));
 
