@@ -27,7 +27,7 @@ const INTERIOR_SERVICES = [
     title: "Bespoke Modular Kitchens",
     tagline: "Ergonomic Culinary Spaces",
     icon: ChefHat,
-    image: STUDIO_ASSETS.kitchenChampagne,
+    image: STUDIO_ASSETS.kitchenOlive,
     description:
       "Precision-crafted modular kitchens designed for seamless workflow, durability, and contemporary elegance. We incorporate European soft-close hardware, custom island counters, and high-efficiency concealed storage.",
     features: [
